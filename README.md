@@ -21,10 +21,9 @@ Check here [Quotes](https://malik-azad.github.io/quotes/)
 . ** Feel Free to Clone the Repository and suggest changes**:
    ```bash
    git clone https://github.com/your-username/quote-of-the-day.git
+   ```
 
-
-
-<br><hr><br>
+<hr><br>
 
 ## 🎯 Usage
 - **New Quote**: Click the "New Quote" button to fetch a new random quote.
