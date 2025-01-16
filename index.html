@@ -8,8 +8,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <title>Quote of the day</title>
 </head>
@@ -26,29 +28,48 @@
         </div>
 
         <div id="social">
-        <footer>
-            <p>Made with ❤️ by Malik Azad</p>
-            <div class="social-icons">
-                <a href="https://github.com/malik-azad" target="_blank">
-                    <img src="github-logo.png">
-                </a>
-                <a href="https://instagram.com/malikjubran_" target="_blank">
-                    <img src="instagram.png">
-                </a>
-                <a href="https://linkedin.com/in/malikazad" target="_blank">
-                    <img src="linkedin.png">
-                </a>
-            </div>
-        </footer>
+            <footer>
+                <p>Made with ❤️ by Malik Azad</p>
+                <div class="social-icons">
+                    <a href="https://github.com/malik-azad" target="_blank">
+                        <img src="github-logo.png">
+                    </a>
+                    <a href="https://instagram.com/malikjubran_" target="_blank">
+                        <img src="instagram.png">
+                    </a>
+                    <a href="https://linkedin.com/in/malikazad" target="_blank">
+                        <img src="linkedin.png">
+                    </a>
+                </div>
+            </footer>
+
+        </div>
+
 
     </div>
 
 
-    </div>
+    <script>
+        const quote = document.getElementById("quote");
+        const author = document.getElementById("author");
+        const api_url = "https://random-quotes-freeapi.vercel.app/api/random";
 
-    <script src="script.js"></script>
+        async function getquote(url) {
+            const response = await fetch(url);
+            var data = await response.json();
 
+            quote.innerHTML = data.quote;
+            author.innerHTML = "--" + data.author;
 
+        }
+
+        getquote(api_url);
+
+        function tweet() {
+            window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML, + "--- by " + author.innerHTML, "Tweet Window", "width=600, height=300");
+        }
+
+    </script>
 </body>
 
 </html>
